@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regression on A Hugo website</title>
+    <link>/tags/regression/</link>
+    <description>Recent content in regression on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Sep 2020 21:13:14 -0600</lastBuildDate><atom:link href="/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Online Web CES Data Exploration</title>
+      <link>/2020/09/24/online-web-ces-data-exploration/</link>
+      <pubDate>Thu, 24 Sep 2020 21:13:14 -0600</pubDate>
+      
+      <guid>/2020/09/24/online-web-ces-data-exploration/</guid>
+      <description>GitHub Link : https://github.com/huangm50/cesrrrrr
+Abstract Data analysis on the 2019 CES Online Web Survey data. We explored the relationship between three variables that I am interested in, and found French speakers had taken more time on the survey compared to English speakers; elderly participants in the survey that speak English tend to take less time as age increases.
+ Introduction The data is from 2019 Canadian Election Study, specifically we used the 2019 CES Online Web Survey data to investigate anything interesting about the data.</description>
+    </item>
+    
+  </channel>
+</rss>

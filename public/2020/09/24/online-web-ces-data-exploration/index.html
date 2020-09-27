@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.75.1" />
+
+
+<title>Online Web CES Data Exploration - A Hugo website</title>
+<meta property="og:title" content="Online Web CES Data Exploration - A Hugo website">
+
+
+  <link href='../../../../favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="../../../../css/fonts.css" media="all">
+<link rel="stylesheet" href="../../../../css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="../../../../" class="nav-logo">
+    <img src="../../../../images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="../../../../about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">Online Web CES Data Exploration</h1>
+
+    
+    <span class="article-date">2020-09-24</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>GitHub Link : <a href="https://github.com/huangm50/cesrrrrr" class="uri">https://github.com/huangm50/cesrrrrr</a></p>
+<div id="abstract" class="section level1">
+<h1>Abstract</h1>
+<p>Data analysis on the 2019 CES Online Web Survey data. We explored the relationship between three variables that I am interested in, and found French speakers had taken more time on the survey compared to English speakers; elderly participants in the survey that speak English tend to take less time as age increases.</p>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The data is from 2019 Canadian Election Study, specifically we used the 2019 CES Online Web Survey data to investigate anything interesting about the data. We explored the relationship between three variables that we are interested in which are age of survey participants, time duration of the survey and the main languages spoken by the participants.</p>
+<p>By plotting the scatter plot of Duration versus Age in 2019 Web CES for English and French speakers, we noticed that, on average, French speakers had taken more time on the survey compared to English speakers. Furthermore, elderly participants in the survey that speak English tend to take less time as age increases.</p>
+<p>This paper is mainly discussed three variables in the data set, however, there are more than 620 variables in total. Further work can be done to fit models with even more variables.</p>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<div id="data-description" class="section level3">
+<h3>Data description</h3>
+<p>The 2019 web data set of the Canadian Election Study includes 620 variables and around 38000 observations. The data I used is specifically from the web survey and the sampling units of the survey are people did the web survey in 2019. The target population is all Canadian citizen and permanent residents that aged 18 or older.</p>
+</div>
+<div id="some-initial-explorations" class="section level3">
+<h3>Some initial explorations</h3>
+<p>The variables we focus on are:</p>
+<ul>
+<li><p>the ages of participants in the online survey</p></li>
+<li><p>the main language spoken by participants in the online survey</p></li>
+<li><p>the time taken by participants in the online survey</p></li>
+</ul>
+</div>
+<div id="summary-statistics-for-the-two-interested-numerical-variables-age-and-duration" class="section level3">
+<h3>Summary statistics for the two interested numerical variables age and duration:</h3>
+<ul>
+<li>Summary statistics for age</li>
+</ul>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   18.00   35.00   49.00   48.72   62.00   99.00</code></pre>
+<ul>
+<li>Summary statistics for duration</li>
+</ul>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     500     913    1189    1436    1604    9988</code></pre>
+<p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="../../../../post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<ul>
+<li>In this graph we find that the distribution of age is bimodal with one peak at around 35-40 and another peak at about 65-70. The distribution is also a little bit right skewed with most values of age located left side and very few on the upper end.</li>
+</ul>
+</div>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>From our sample, we noticed that French speakers had taken more time on the survey compared to English speakers. Furthermore, elderly participants in the survey that speak English tend to take less time as age increases.</p>
+<div id="weaknesses-and-next-steps" class="section level3">
+<h3>Weaknesses and next steps</h3>
+<p>My weaknesses include that some of my findings are still required more check such as finding of potential confounding and lurking variables that we did not take into account. Further work can be done to fit models with even more variables.</p>
+</div>
+</div>
+<div id="blog-link" class="section level1">
+<h1>Blog Link</h1>
+<p><a href="https://github.com/huangm50/cesR" class="uri">https://github.com/huangm50/cesR</a></p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<ul>
+<li>Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, ‘2019 Canadian Election Study - Online Survey’, <a href="https://doi.org/10.7910/DVN/DUS88V" class="uri">https://doi.org/10.7910/DVN/DUS88V</a>, Harvard Dataverse, V1</li>
+<li>Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets a Little Easier.. R package version 0.1.0.</li>
+<li>Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. <a href="https://devtools.r-lib.org/,https://github.com/r-lib/devtools" class="uri">https://devtools.r-lib.org/,https://github.com/r-lib/devtools</a>.</li>
+<li>R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. URL, <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</li>
+<li>JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. URL <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a>.</li>
+</ul>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="../../../../index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="../../../../images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

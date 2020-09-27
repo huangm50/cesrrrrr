@@ -1,0 +1,135 @@
+---
+title: "Online Web CES Data Exploration"
+author: "Michellev Huang"
+date: 2020-09-24T21:13:14-06:00
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+GitHub Link : https://github.com/huangm50/cesrrrrr
+
+
+# Abstract
+Data analysis on the 2019 CES Online Web Survey data. We explored the relationship between three variables that I am interested in, and found French speakers had taken more time on the survey compared to English speakers; elderly participants in the survey that speak English tend to take less time as age increases.
+
+# Introduction
+
+The data is from 2019 Canadian Election Study, specifically we used the 2019 CES Online Web Survey data to investigate anything interesting about the data. We explored the relationship between three variables that we are interested in which are age of survey participants, time duration of the survey and the main languages spoken by the participants.
+
+By plotting the scatter plot of Duration versus Age in 2019 Web CES for English and French speakers, we noticed that, on average, French speakers had taken more time on the survey compared to English speakers. Furthermore, elderly participants in the survey that speak English tend to take less time as age increases.
+
+This paper is mainly discussed three variables in the data set, however, there are more than 620 variables in total. Further work can be done to fit models with even more variables. 
+
+
+```{r download, warning=FALSE, message=FALSE, echo = FALSE, results='hide'}
+# install.packages("devtools")
+# devtools::install_github("hodgettsp/cesR")
+cesR::get_ces("ces2019_web")
+```
+
+# Data
+
+### Data description
+
+The 2019 web data set of the Canadian Election Study includes 620 variables and around 38000 observations. The data I used is specifically from the web survey and the sampling units of the survey are people did the web survey in 2019. The target population is all Canadian citizen and permanent residents that aged 18 or older.
+
+```{r, eval = FALSE, echo = FALSE}
+head(ces2019_web)
+```
+### Some initial explorations
+
+```{r, echo = FALSE,warning=FALSE, message=FALSE, echo = FALSE}
+library(dplyr)
+ces2019_web_subset <- ces2019_web %>% 
+  select(cps19_age, cps19_Q_Language, cps19_Q_TotalDuration) %>%
+  filter(cps19_Q_TotalDuration < 10000)
+
+```
+
+The variables we focus on are:
+
+- the ages of participants in the online survey
+
+- the main language spoken by participants in the online survey
+
+- the time taken by participants in the online survey
+
+### Summary statistics for the two interested numerical variables age and duration:
+
+- Summary statistics for age
+
+```{r, echo=FALSE}
+# Summary statistics for age
+summary(ces2019_web_subset$cps19_age)
+```
+
+- Summary statistics for duration
+
+```{r, echo=FALSE}
+# Summary statistics for duration
+summary(ces2019_web_subset$cps19_Q_TotalDuration)
+```
+
+
+```{r, echo = FALSE,warning=FALSE,message=FALSE}
+library(ggplot2)
+ggplot(ces2019_web_subset, aes(x=cps19_age, y=cps19_Q_TotalDuration, color=cps19_Q_Language)) +
+  geom_point(size = 0.5) + 
+  labs(x = "Age",
+       y = "Duration",
+       title = "Duration versus Age in 2019 Web CES for EN and FR speakers",
+       caption = "Source: Stephenson, Harell, Rubenson, Loewen, 2020.") +
+  geom_smooth()
+```
+
+
+
+```{r, echo = FALSE,warning=FALSE,message=FALSE}
+ces2019_web_subset %>% 
+  ggplot(aes(x = cps19_age)) +
+  geom_histogram(binwidth = 1) +
+  labs(x = "Age",
+       y = "Number",
+       title = "Distribution of Age in 2019 Online Web CES",
+       caption = "Source: Stephenson, Harell, Rubenson, Loewen, 2020.") +
+  theme_bw()
+```
+
+- In this graph we find that the distribution of age is bimodal with one peak at around 35-40 and another peak at about 65-70. The distribution is also a little bit right skewed with most values of age located left side and very few on the upper end.
+
+
+
+
+# Discussion
+
+
+
+
+From our sample, we noticed that French speakers had taken more time on the survey compared to English speakers. Furthermore, elderly participants in the survey that speak English tend to take less time as age increases.
+
+
+
+
+### Weaknesses and next steps
+
+My weaknesses include that some of my findings are still required more check such as finding of potential confounding and lurking variables that we did not take into account. Further work can be done to fit models with even more variables.
+
+# Blog Link
+
+https://github.com/huangm50/cesR
+
+
+# References
+
+- Stephenson, Laura B; Harell, Allison; Rubenson, Daniel; Loewen, Peter John, 2020, '2019 Canadian Election Study - Online Survey', https://doi.org/10.7910/DVN/DUS88V, Harvard Dataverse, V1
+- Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets a Little Easier.. R package version 0.1.0.
+-  Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. https://devtools.r-lib.org/,https://github.com/r-lib/devtools.
+- R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. URL, https://www.R-project.org/.
+- JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. URL https://rmarkdown.rstudio.com.
+
+
+
